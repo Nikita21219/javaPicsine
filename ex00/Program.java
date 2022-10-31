@@ -1,4 +1,4 @@
-public class Main {
+public class Program {
     public static void main(String[] args) {
         int num = 479598;
         String numAsString = Integer.toString(num);
