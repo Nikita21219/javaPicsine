@@ -7,23 +7,18 @@ public class Transaction {
     private String transferCategory;
     private int transferAmount;
 
-    public Transaction(User user1, User user2, String transferCat, int transferAmount) {
-        if (transferCat.equals("debit")) {
-            this.recipient = user1;
-            this.sender = user2;
-        } else if (transferCat.equals("credit")) {
-            this.recipient = user2;
-            this.sender = user1;
-        } else {
-            System.err.println("ERROR: Transfer category is invalid");
-            System.exit(-1);
-        }
+    public Transaction(User user1, User user2, int transferAmount) {
         if (transferAmount < 0) {
-            System.err.println("ERROR: Transfer amount must be bigger than 0");
-            System.exit(-1);
+            sender = user1;
+            recipient = user2;
+            transferCategory = "credit";
+        } else {
+            sender = user2;
+            recipient = user1;
+            transferCategory = "debit";
         }
+        this.transferAmount = transferAmount;
         this.identifier = UUID.randomUUID();
-        transferCategory = transferCat;
         setTransferAmount(transferAmount);
     }
 
@@ -47,15 +42,15 @@ public class Transaction {
         return transferAmount;
     }
 
-    public void setTransferAmount(int transferAmount) {
-        int newSenderBalance = sender.getBalance() - transferAmount;
+    public void setTransferAmount(int amount) {
+        int newSenderBalance = sender.getBalance() + amount;
         if (newSenderBalance < 0) {
-            System.err.println("ERROR: Sender balance is low");
+            System.err.println("ERROR: Sender balance is not enough");
             System.exit(-1);
         }
         sender.setBalance(newSenderBalance);
-        recipient.setBalance(recipient.getBalance() + transferAmount);
-        this.transferAmount = transferAmount;
+        recipient.setBalance(recipient.getBalance() - amount);
+        this.transferAmount = amount;
     }
 
     public void tellAboutTransaction() {
