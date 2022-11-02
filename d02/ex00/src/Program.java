@@ -11,10 +11,17 @@ public class Program {
                 continue;
             }
             String type = img.getFileTypeBySign();
+            if (type == null) {
+                System.err.println("Error");
+                continue;
+            }
             img.writeResultInFile(type);
             img.close();
+            System.out.println("PROCESSED");
         }
         in.close();
         img.closeResultFile();
     }
 }
+
+//      /Users/a1/Downloads/IT/school21/javaPicsine/d02/img/1.png
