@@ -3,8 +3,12 @@ import java.util.ArrayList;
 
 public class MyImageReader {
     private InputStream is;
+    private FileOutputStream fos;
 
-    public MyImageReader() {is = null;}
+    public MyImageReader() {
+        is = null;
+        fos = null;
+    }
 
     public boolean open(String pathToImage) {
         if (is == null) {
@@ -18,7 +22,7 @@ public class MyImageReader {
         return false;
     }
 
-    public boolean close() throws IOException {
+    public boolean close() {
         if (is != null) {
             try {
                 is.close();
@@ -26,6 +30,19 @@ public class MyImageReader {
                 return false;
             }
             is = null;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean closeResultFile() {
+        if (fos != null) {
+            try {
+                fos.close();
+            } catch (Exception e) {
+                return false;
+            }
+            fos = null;
             return true;
         }
         return false;
@@ -92,19 +109,32 @@ public class MyImageReader {
         return null;
     }
 
-    public void getFileTypeBySign() {
+    public String getFileTypeBySign() {
         String sign = getSignature();
         if (sign == null)
-            return;
+            return null;
         ArrayList<String> imgTypes = getImgTypes();
         if (imgTypes == null)
-            return;
+            return null;
         for (int i = 0; i < imgTypes.size(); i++) {
             String type = getType(imgTypes.get(i), sign);
-            if (type != null) {
-                System.out.println(type);
-                break;
-            }
+            if (type != null)
+                return type;
+        }
+        return null;
+    }
+
+    public void writeResultInFile(String text) {
+        try {
+            if (fos == null)
+                fos = new FileOutputStream("result.txt");
+            fos.write(text.getBytes());
+            fos.write("\n".getBytes());
+        } catch (Exception e) {
+            System.err.println("Exception catch");
+            System.err.println(e.getMessage());
+            System.exit(-1);
         }
     }
+
 }

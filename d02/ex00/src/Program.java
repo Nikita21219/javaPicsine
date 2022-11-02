@@ -1,23 +1,20 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-//Try to open file with 000 rules
+import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         MyImageReader img = new MyImageReader();
-        String pathToImg = "/Users/a1/Downloads/IT/school21/javaPicsine/d02/img/1.png";
-        if (!img.open(pathToImg)) {
-            System.err.println("Error open");
-            System.exit(-1);
+        Scanner in = new Scanner(System.in);
+        String pathToImg;
+        while (!(pathToImg = in.next()).equals("42")) {
+            if (!img.open(pathToImg)) {
+                System.err.println("Error: file can't open");
+                continue;
+            }
+            String type = img.getFileTypeBySign();
+            img.writeResultInFile(type);
+            img.close();
         }
-        img.getFileTypeBySign();
-        img.close();
+        in.close();
+        img.closeResultFile();
     }
 }
-
-//    /Users/a1/Downloads/IT/school21/javaPicsine/d02/img/1.png
-//    /Users/a1/Downloads/IT/school21/javaPicsine/d02/img/2.jpg
-//    /Users/a1/Downloads/IT/school21/javaPicsine/d02/img/3.heic
