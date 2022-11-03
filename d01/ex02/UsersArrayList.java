@@ -1,3 +1,5 @@
+package d01.ex02;
+
 import java.util.ArrayList;
 
 public class UsersArrayList implements UsersList {

@@ -1,3 +1,4 @@
+package d01.ex02;
 public class User {
     private int identifier;
     private String name;

@@ -1,8 +1,10 @@
+//package d01.ex00;
+
 public class Program {
     public static void main(String[] args) {
         User user1 = new User("user42", 500, 1);
         User user2 = new User("user21", 999, 2);
-        
+
         user1.getInfo();
         user2.getInfo();
 
@@ -16,7 +18,7 @@ public class Program {
 
         Transaction transaction2 = new Transaction(user2, user1, -1200);
         transaction2.tellAboutTransaction();
-        
+
         user1.getInfo();
         user2.getInfo();
     }

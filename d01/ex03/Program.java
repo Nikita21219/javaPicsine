@@ -1,3 +1,4 @@
+package d01.ex03;
 public class Program {
     public static void main(String[] args) {
         User user1 = new User("user42", 500);
@@ -7,7 +8,6 @@ public class Program {
         usersList.addUser(user2);
         usersList.addUser(user1);
 
-        
         TransactionsList list = user1.getTransactions();
         list.addTransaction(new Transaction(user1, user2, 100));
         list.addTransaction(new Transaction(user2, user1, -450));

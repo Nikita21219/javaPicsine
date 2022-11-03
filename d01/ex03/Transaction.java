@@ -1,3 +1,4 @@
+package d01.ex03;
 import java.util.UUID;
 
 public class Transaction {

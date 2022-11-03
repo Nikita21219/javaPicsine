@@ -1,3 +1,5 @@
+package d00.ex03;
+
 import java.util.Scanner;
 
 public class Program {
@@ -36,7 +38,7 @@ public class Program {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int weekDay = 0, rank = 1;
-        while (weekDay <= 18) {
+        while (weekDay < 18) {
             if (checkUserInput(++weekDay, in.nextLine())) {
                 break;
             }

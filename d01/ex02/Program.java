@@ -1,3 +1,4 @@
+package d01.ex02;
 public class Program {
     public static void main(String[] args) {
         User user1 = new User("user42", 500);

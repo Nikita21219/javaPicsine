@@ -1,3 +1,4 @@
+package d01.ex03;
 public class UserIdsGenerator {
     private static UserIdsGenerator instance = null;
     private static int id = 0;

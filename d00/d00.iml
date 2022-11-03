@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/../out/production/d01" />
-    <output-test url="file://$MODULE_DIR$/../out/test/d01" />
+    <output url="file://$MODULE_DIR$/../out/production/d00" />
+    <output-test url="file://$MODULE_DIR$/../out/test/d00" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/ex00" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ex01" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ex02" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ex03" isTestSource="false" />
-      <excludePattern pattern="Program.java" />
+      <sourceFolder url="file://$MODULE_DIR$/ex04" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
